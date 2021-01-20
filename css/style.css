@@ -1,0 +1,146 @@
+/* généralités */
+
+body {
+    background-color: #ddd;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+h1, h2, h3 {
+    font-family: Oswald, sans-serif;
+    font-weight: bold;
+}
+
+h2 {
+    margin: .6667em 0; /* em est une unité proportionnelle à la font-size de l'élément : ici 0,6666 * 24px ~= 16px */
+    font-size: 1.5em; /* sauf quand elle est utilisée pour définir la font-size de l'élément, auquel cas, elle représentera la font-size du parent : ici 1.5em = 1,5 * 16px = 24px */
+}
+
+h3 {
+    margin: .8em 0;
+    color: darkred;
+    font-size: 1.25em; /* 1.25 * 16px = 20px */
+}
+
+#container {
+    background-color: #fff;
+    border: 1px solid #444;
+    margin: 1em auto;
+    padding: 1em;
+    width: 50em; /* 50 * 16 = 800px */
+}
+
+/* entête */
+
+#header {
+    background-image: url(../ressources/img/hc.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding-top: 270px; /* on laisse en px car cette valeur est établie par rapport à la taille de l'image de fond */
+}
+
+#header h1 {
+    font-size: 3em;
+    border: 2px solid darkred; /* ici, on fait une exception car on est sur une toute petite valeur */
+    border-width: 2px 0;
+    margin: .333em 0;
+    padding: .333em 0;
+}
+
+#subtitle {
+    background-color: black;
+    color: white;
+    font-size: .333em; /* ici, le parent est le h1 donc il faut exprimer cette font-size par rapport à celle du h1 */
+    padding: .5em 1em;
+}
+
+/* contenu principal */
+
+#content {
+    width: 80%;
+    margin: 1em auto;
+}
+
+#presentation {
+    background-color: #eee;
+    padding: 1em;
+}
+
+.illustration {
+    float: left;
+    width: 20%;
+    margin: 0 1em;
+}
+
+.plain-text {
+    text-align: left;
+    line-height: 1.25em;
+    margin-bottom: 1em;
+}
+
+.details {
+    border-top: 1px solid black;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+.details p {
+    font-style: italic;
+    font-size: .75em;
+    line-height: 1.333em;
+}
+
+/* liste des acteurs */
+
+#actors li {
+    background-color: #eee;
+    color: darkred;
+    margin: .25em .5em;
+    border-radius: 1em;
+    /* le meilleur des deux mondes : un élément inline-block se comporte comme un inline depuis l'extérieur, mais comme un block depuis l'intérieur */
+    display: inline-block;
+    width: 30%;
+}
+
+#actors li a {
+    font-size: .75em;
+    text-transform: uppercase;
+    padding: .5em 1em;
+    display: block;
+}
+
+/* galerie */
+
+#pictures {
+    /* on charge le parent de disposer ses enfants convenablement */
+    display: flex;
+    /* et toutes les autres propriétés flex servent à déterminer la politique exacte à adopter pour ce parent */
+    flex-direction: row; /* valeur par défaut */
+    justify-content: space-between;
+    flex-wrap: nowrap; /* valeur par défaut */
+    align-items: stretch; /* valeur par défaut */
+}
+
+.picture {
+    width: 30%;
+    margin: 0;
+    padding: 1.5em 1em;
+    border: 1px solid #ccc;
+    /* chaque article, déjà flexé par son parent, devient lui-même un parent flex */
+    display: flex;
+    /* et il n'y a que le sens d'empilage à modifier */
+    flex-direction: column;
+}
+
+.picture img {
+    /* pour harmoniser le rendu des articles, on va plutôt fixer la hauteur des images */
+    height: 100px;
+}
+
+/* pied de page */
+
+#footer {
+    background-color: #eee;
+    padding: 1em 1em 4em;
+}
